@@ -7,56 +7,54 @@ class Program {
 
     static void Main() {
 
-        int Ax, Ay, Bx, By, Cx, Cy = 0;
-        double AB, BC, AC, perimeter = 0;
+        double ax, ay, bx, by, cx, cy;
+        double ab, bc, ac, perimeter;
 
         Console.WriteLine("Test\n");
         //Ask the coodinates to the user
         Console.WriteLine("Enter a coordinate x of dot A");
-        Ax = Convert.ToInt32(Console.ReadLine());
+        ax = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("Enter a coordinate y of dot A");
-        Ay = Convert.ToInt32(Console.ReadLine());
+        ay = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("Enter a coordinate x of dot B");
-        Bx = Convert.ToInt32(Console.ReadLine());
+        bx = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("Enter a coordinate y of dot B");
-        By = Convert.ToInt32(Console.ReadLine());
+        by = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("Enter a coordinate x of dot C");
-        Cx = Convert.ToInt32(Console.ReadLine());
+        cx = Convert.ToDouble(Console.ReadLine());
         Console.WriteLine("Enter a coordinate y of dot C");
-        Cy = Convert.ToInt32(Console.ReadLine());
+        cy = Convert.ToDouble(Console.ReadLine());
 
         //Give the length from the coodinates given 
         Console.WriteLine("The length of triangle sides\n");
-        AB = DotDistance(Ax, Ay, Bx, By);
-        Console.WriteLine("Length of side AB is: {0:0.##}", AB);
-        BC = DotDistance(Bx, By, Cx, Cy);
-        Console.WriteLine("Length of side BC is: {0:0.##}", BC);
-        AC = DotDistance(Ax, Ay, Cx, Cy);
-        Console.WriteLine("Length of side CA is: {0:0.##}\n", AC);
+        ab = DotDistance(ax, ay, bx, by);
+        Console.WriteLine("Length of side AB is: {0:0.##}", ab);
+        bc = DotDistance(bx, by, cx, cy);
+        Console.WriteLine("Length of side BC is: {0:0.##}", bc);
+        ac = DotDistance(ax, ay, cx, cy);
+        Console.WriteLine("Length of side CA is: {0:0.##}\n", ac);
 
         //Check if the triangle is Equilateral
-        CheckEquilateral(AB, BC, AC);
+        CheckEquilateral(ab, bc, ac);
         // Calculate the perimeter to the triangle
-        perimeter=CalculatePerimeter(AB, BC, AC);
+        perimeter=CalculatePerimeter(ab, bc, ac);
         // Check if the triangle is Isosceles
-        CheckIsosceles(AB, BC, AC);
+        CheckIsosceles(ab, bc, ac);
         // Check if the triangle is right
-        CheckRight(AB, BC, AC);
+        CheckRight(ab, bc, ac);
         //even numbers from 0 to perimeter value
         EvenNumbers(perimeter);
     }
 
     static double DotDistance(double x1, double y1, double x2, double y2)
     {
-        double distance = 0;
+        double distance ;
         distance = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
-        //distance = Convert.ToInt32(distance);
         return (distance);
     }
 
     static void CheckEquilateral(double AB, double BC, double AC)
     {
-        // bool flag = false;
         if ((AB == BC) && (BC == AC))
         {
             Console.WriteLine("The triangle is Equilateral \n");
